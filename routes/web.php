@@ -14,7 +14,7 @@ use App\Http\Controllers\backend\SliderController;
 use App\Http\Controllers\frontend\IndexController;
 use App\Http\Controllers\frontend\LanguageController;
 
-
+// Create a seperate site for examination dpt to upload the results and then we can get results via Api frm it
 
 /*
 |--------------------------------------------------------------------------
