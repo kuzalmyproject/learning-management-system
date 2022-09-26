@@ -3,13 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\backend\AdminProfileController;
-use App\Http\Controllers\backend\BrandController;
-use App\Http\Controllers\backend\CategoryController;
-use App\Http\Controllers\backend\SubCategoryController;
-use App\Http\Controllers\backend\SubSubCategoryController;
-use App\Http\Controllers\backend\ProductController;
-use App\Http\Controllers\backend\SliderController;
+use App\Http\Controllers\backend\AdminprofileController;
+
 
 use App\Http\Controllers\frontend\IndexController;
 use App\Http\Controllers\frontend\LanguageController;
@@ -51,15 +46,11 @@ Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.lo
 
 Route::prefix('profile')->group(function(){
 
-    Route::get('/view',[AdminProfileController::class, 'ProfileView'])->name('admin.profile.view');
-
-    Route::get('/edit',[AdminProfileController::class, 'ProfileEdit'])->name('admin.profile.edit');
-
-    Route::post('/store',[AdminProfileController::class, 'ProfileStore'])->name('admin.profile.store');
-
-    Route::get('/password/view',[AdminProfileController::class, 'PasswordView'])->name('admin.password.view');
-
-    Route::post('/password/update',[AdminProfileController::class, 'PasswordUpdate'])->name('admin.password.update');
+    Route::get('/home',[AdminprofileController::class, 'Home'])->name('admin.home');
+    Route::get('/view',[AdminprofileController::class, 'ProfileView'])->name('admin.profile.view');
+    Route::get('/edit',[AdminprofileController::class, 'Profileedit'])->name('admin.profile.edit');
+    Route::post('/store',[AdminprofileController::class, 'ProfileUpdate'])->name('admin.profile.store');
+    Route::post('/password/update',[AdminprofileController::class, 'PasswordUpdate'])->name('admin.password.update');
 
 });//end of the profile controller group
 

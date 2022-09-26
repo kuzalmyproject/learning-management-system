@@ -6,6 +6,6 @@
     </x-slot>
 
     <div class="py-12">
-        This is just home page 
+        This is just home page for this web siite
     </div>
 </x-app-layout>
