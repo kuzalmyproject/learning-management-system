@@ -1,4 +1,12 @@
 <!--sidebar start-->
+
+
+@php
+$prefix= Request::route()->getPrefix();
+$route=Route::current()->getName();
+
+
+@endphp
 <aside>
 @php
 				$adminData = DB::table('admins')->first();
@@ -10,22 +18,39 @@
               	  <p class="centered"><a href="{{route('admin.profile.view')}}"><img src="{{ (!empty($adminData->profile_photo_path))? url('upload/admin_images/'.$adminData->profile_photo_path):url('upload/images.png')}}" class="img-circle" width="60"></a></p>
               	  <h5 class="centered">{{$adminData->name}}</h5>
               	  	
+                  
+
                   <li class="mt">
-                      <a class="active" href="{{route('admin.home')}}">
+                  <a class="{{ ($route=='dashboard')? 'active':''}}" href="{{url('admin/dashboard')}}">
+
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
                   </li>
 
+                  <li class="mt">
+                  <a class="{{ ($prefix=='/faculty')? 'active':''}}" href="{{route('admin.addfaculty')}}">
+
+                          <i class="fa fa-building"></i>
+                          <span>Add Faculty</span>
+                      </a>
+                  </li>
+
+                  <li class="mt">
+                      <a class="{{ ($prefix=='faculty')? 'active':''}}" href="{{route('admin.addfaculty')}}">
+                      <i style='font-size:24px' class='fas'>&#xf51c;</i>
+                      <span>Add Faculty</span>
+                      </a>
+                  </li>
+
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                  <a class="" href="">
+
                           <i class="fa fa-desktop"></i>
                           <span>Add Teacher</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="general.html">General</a></li>
-                          <li><a  href="buttons.html">Buttons</a></li>
-                          <li><a  href="panels.html">Panels</a></li>
+                          
                       </ul>
                   </li>
 

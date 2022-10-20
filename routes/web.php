@@ -3,8 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\backend\AdminprofileController;
 
+use App\Http\Controllers\backend\AdminprofileController;
+use App\Http\Controllers\backend\FacultyController;
+
+ 
 
 use App\Http\Controllers\frontend\IndexController;
 use App\Http\Controllers\frontend\LanguageController;
@@ -53,9 +56,17 @@ Route::prefix('profile')->group(function(){
     Route::post('/password/update',[AdminprofileController::class, 'PasswordUpdate'])->name('admin.password.update');
 
 });//end of the profile controller group
+Route::prefix('faculty')->group(function(){
 
+Route::get('/view',[FacultyController::class, 'faculty'])->name('admin.addfaculty');
 
-});//end of the middleware
+Route::post('/store',[FacultyController::class, 'store'])->name('faculty.store');
+Route::get('/edit/{id}',[FacultyController::class, 'facultyedit'])->name('faculty.edit');
+Route::get('/delete/{id}',[FacultyController::class, 'facultydelete'])->name('faculty.delete');
+Route::post('/update',[FacultyController::class, 'facultyupdate'])->name('faculty.update');
+
+});
+});//end of the cc
 
 /*****************************User Related All Route List*************************/
 
