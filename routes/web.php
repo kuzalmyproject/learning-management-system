@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 
 use App\Http\Controllers\backend\AdminprofileController;
 use App\Http\Controllers\backend\FacultyController;
+use App\Http\Controllers\backend\DepartmentController;
 
  
 
@@ -66,6 +67,17 @@ Route::get('/delete/{id}',[FacultyController::class, 'facultydelete'])->name('fa
 Route::post('/update',[FacultyController::class, 'facultyupdate'])->name('faculty.update');
 
 });
+
+Route::prefix('department')->group(function(){
+
+    Route::get('/view',[DepartmentController::class, 'department'])->name('admin.adddepartment');
+    
+    Route::post('/store',[DepartmentController::class, 'store'])->name('department.store');
+    Route::get('/edit/{id}',[FacultyController::class, 'facultyedit'])->name('faculty.edit');
+    Route::get('/delete/{id}',[FacultyController::class, 'facultydelete'])->name('faculty.delete');
+    Route::post('/update',[FacultyController::class, 'facultyupdate'])->name('faculty.update');
+    
+    });
 });//end of the cc
 
 /*****************************User Related All Route List*************************/

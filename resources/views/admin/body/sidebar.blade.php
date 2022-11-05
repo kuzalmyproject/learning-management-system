@@ -37,9 +37,9 @@ $route=Route::current()->getName();
                   </li>
 
                   <li class="mt">
-                      <a class="{{ ($prefix=='faculty')? 'active':''}}" href="{{route('admin.addfaculty')}}">
+                      <a class="{{ ($prefix=='department')? 'active':''}}" href="{{route('admin.adddepartment')}}">
                       <i style='font-size:24px' class='fas'>&#xf51c;</i>
-                      <span>Add Faculty</span>
+                      <span>Add  Departmen5t</span>
                       </a>
                   </li>
 
